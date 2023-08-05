@@ -11,7 +11,7 @@ int main(void)
     {
         n = get_int("Starting size:\n");
     }
-    while (n < 1);
+    while (n < 9);
     ;
 
     do
