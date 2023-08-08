@@ -1,4 +1,3 @@
-#include <cs50.h>
 #include <stdio.h>
 
 int get_cents(void);
@@ -32,35 +31,36 @@ int main(void)
     int coins = quarters + dimes + nickels + pennies;
 
     // Print total number of coins to give the customer
-    printf("%i\n", coins);
+   printf("%d\n", coins);
 }
 
-int get_cents(void)
-{
-    // TODO
-    return 0;
+int get_cents(void )
+{ int cents;
+   printf("How many cents are owed:");
+    scanf("%d",&cents);
+    return cents;
 }
 
 int calculate_quarters(int cents)
 {
-    // TODO
-    return 0;
+   int coins = cents/25;
+    return coins;
 }
 
 int calculate_dimes(int cents)
 {
-    // TODO
-    return 0;
+    int coins = cents/10;
+    return coins;
 }
 
 int calculate_nickels(int cents)
 {
-    // TODO
-    return 0;
+    int coins = cents/5;
+    return coins;
 }
 
 int calculate_pennies(int cents)
 {
-    // TODO
-    return 0;
+
+    return cents;
 }
