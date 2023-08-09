@@ -72,10 +72,13 @@ int compute_score(char *word)
     int sum=0;
     for(int i =0;word[i]!='\0'; i++) {
 
+      if(islower(word[i])){
 
+        toupper(word[i]);
+      }
         for(int j=0; j<26; j++){
 
-        if(toupper(word[i])==j+65){
+        if(word[i]==j+65){
 
           sum+=POINTS[j];
 
