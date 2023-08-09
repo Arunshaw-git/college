@@ -36,9 +36,11 @@ int main(void)
 
 int get_cents(void )
 { int cents;
-  do( printf("How many cents are owed:");
-    scanf("%d",&cents);
-  )while(cents<=1);
+  do{
+
+    cents = get_int("Cents owed: ");
+  }
+   while(cents<=1);
     return cents;
 }
 
