@@ -36,8 +36,9 @@ int main(void)
 
 int get_cents(void )
 { int cents;
-   printf("How many cents are owed:");
+  do( printf("How many cents are owed:");
     scanf("%d",&cents);
+  )while(cents<=1);
     return cents;
 }
 
@@ -61,6 +62,6 @@ int calculate_nickels(int cents)
 
 int calculate_pennies(int cents)
 {
-
+    int coins = cents/1 ;
     return cents;
 }
