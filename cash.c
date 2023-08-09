@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <cs50.h>
 int get_cents(void);
 int calculate_quarters(int cents);
 int calculate_dimes(int cents);
@@ -34,7 +34,7 @@ int main(void)
    printf("%d\n", coins);
 }
 
-int get_cents(void )
+int get_cents( void )
 { int cents;
   do{
 
