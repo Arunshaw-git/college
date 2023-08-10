@@ -43,19 +43,19 @@ int main(void)
 
         if(r_index<1){
 
-            printf("Before grade 1");
+            printf("Before grade 1\n");
             }
 
         else if(r_index<16)
             {
 
-            printf("Grade %d",r_index);
+            printf("Grade %d\n",r_index);
 
             }
 
         else {
 
-            printf("Grade 16+");
+            printf("Grade 16+\n");
         }
 
 
