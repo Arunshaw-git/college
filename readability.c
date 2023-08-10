@@ -39,7 +39,7 @@ int main(void)
 
           float index = (0.0588 * L) - (0.296 * S) - 15.8;
            int r_index= round(index);
-        printf("%d\n",r_index);
+     //   printf("%d\n",r_index);
 
         if(r_index<1){
 
