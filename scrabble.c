@@ -75,8 +75,17 @@ int compute_score(char *word)
       if(islower(word[i])){
 
         toupper(word[i]);
+
+      }
+      
+      if(isalpha(word[i])){
+
+        break;
+
       }
         for(int j=0; j<26; j++){
+
+
 
         if(word[i]==j+65){
 
@@ -84,13 +93,7 @@ int compute_score(char *word)
 
           break;
         }
-        else
-        {
-            i++;
         }
-
-        }
-
         }
         return sum;
 }
