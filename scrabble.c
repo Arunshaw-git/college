@@ -54,7 +54,7 @@ int compute_score(char *word)
 
       }
 
-      if( isalpha(word[i] )){
+      if( !isalpha(word[i] )){
 
         break;
 
