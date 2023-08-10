@@ -1,5 +1,4 @@
 #include<ctype.h>
-#include<cs50.h>
 
 #include<stdio.h>
 #include<string.h>
@@ -13,13 +12,12 @@ int compute_score(char *word);
 int main(void)
 {
     // Get input words from both players
-
-    string word1 = get_string("Player 1: ");
-    string word2 = get_string("Player 2: ");
-
+    char *word1;
     bool alpha= true;
      do{
+     printf("Player 1: ");
 
+     scanf("%s",word1);
 
     for(int i=0; word1[i]!='\0';i++){
 
@@ -31,16 +29,16 @@ int main(void)
 
         }
         else{
-
         alpha=true;
-
         }
 
         }
 
     }while(alpha==false);
 
-
+ char *word2;
+    printf("Player 2: ");
+    scanf("%s",word2);
 
     // Score both words
     int score1 = compute_score(word1);
@@ -48,17 +46,17 @@ int main(void)
 
     if(score1>score2){
 
-    printf("Player 1 wins!\n");
+    printf("Player 1 wins");
 
 
     }
     else if(score2>score1){
 
-        printf("Player 2 wins!\n");
+        printf("Player 2 wins");
 
         }
         else{
-        printf("Tie!");
+        printf("Tie");
         }
 
     // TODO: Print the winner
@@ -67,33 +65,26 @@ int main(void)
 int compute_score(char *word)
 {
     // TODO: Compute and return score for string
-
+    char ch;
     int n=0;
     int sum=0;
     for(int i =0;word[i]!='\0'; i++) {
 
-      if(islower(word[i])){
 
-        toupper(word[i]);
-
-      }
-      
-      if(isalpha(word[i])){
-
-        break;
-
-      }
         for(int j=0; j<26; j++){
 
-
-
-        if(word[i]==j+65){
+        if(toupper(word[i])==j+65){
 
           sum+=POINTS[j];
 
           break;
+
+
+
         }
+
         }
+
         }
         return sum;
 }
