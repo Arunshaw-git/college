@@ -1,0 +1,19 @@
+sort1 uses: TODO
+
+sort1 uses bubble sort
+
+
+How do you know?: TODO
+Because the time taken to sort the pre-sorted is very low. Because the omega notation is n for bubble sort
+
+sort2 uses: TODO
+sort2 uses Merge sort.
+
+How do you know?: TODO
+Because time taken to sort sorted text was almost same as the random and reversed one just like with sort3 but the time taken overall was lower than sort3.
+
+sort3 uses: TODO
+sort3 uses selection sort.
+
+How do you know?: TODO
+sort3 uses selection sort because it has the highest time taken to sort the sorted list.
