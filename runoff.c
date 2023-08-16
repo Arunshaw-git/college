@@ -1,6 +1,6 @@
 #include <cs50.h>
 #include <stdio.h>
-#include<string.h>
+#include <string.h>
 
 // Max voters and candidates
 #define MAX_VOTERS 100
@@ -15,8 +15,7 @@ typedef struct
     string name;
     int votes;
     bool eliminated;
-}
-candidate;
+} candidate;
 
 // Array of candidates
 candidate candidates[MAX_CANDIDATES];
@@ -128,29 +127,29 @@ int main(int argc, string argv[])
 // Record preference if vote is valid
 bool vote(int voter, int rank, string name)
 {
-    for(int i = 0; i < candidate_count; i++)
+    for (int i = 0; i < candidate_count; i++)
     {
-        if(strcmp(candidates[i].name,name)==0)
+        if (strcmp(candidates[i].name, name) == 0)
         {
-            preferences[voter][rank]=i;
+            preferences[voter][rank] = i;
             return true;
         }
-     }
+    }
     return false;
 }
 
 // Tabulate votes for non-eliminated candidates
 void tabulate(void)
 {
-    for(int i=0; i<voter_count; i++)
+    for (int i = 0; i < voter_count; i++)
     {
-        for(int j=0; j<candidate_count; j++)
+        for (int j = 0; j < candidate_count; j++)
         {
             int c = preferences[i][j];
-            if(!candidates[c].eliminated)
+            if (!candidates[c].eliminated)
             {
                 candidates[c].votes++;
-            break;
+                break;
             }
         }
     }
@@ -159,11 +158,12 @@ void tabulate(void)
 // Print the winner of the election, if there is one
 bool print_winner(void)
 {
-    for(int i=0; i<candidate_count;i++)
+    for (int i = 0; i < candidate_count; i++)
     {
-        if(candidates[i].votes>(voter_count/2)){
+        if (candidates[i].votes > (voter_count / 2))
+        {
 
-            printf("%s\n",candidates[i].name);
+            printf("%s\n", candidates[i].name);
             return true;
         }
     }
@@ -172,32 +172,36 @@ bool print_winner(void)
 
 // Return the minimum number of votes any remaining candidate has
 int find_min(void)
-{    int c=voter_count;
-    for(int i=0; i<candidate_count;i++)
+{
+    int c = voter_count;
+    for (int i = 0; i < candidate_count; i++)
     {
-        if(!candidates[i].eliminated){
+        if (!candidates[i].eliminated)
+        {
 
-            if(candidates[i].votes<c){
-            c =candidates[i].votes;
-
+            if (candidates[i].votes < c)
+            {
+                c = candidates[i].votes;
+            }
         }
-        }
-        }
+    }
     return c;
 }
 
 // Return true if the election is tied between all candidates, false otherwise
 bool is_tie(int min)
 {
-    for(int i=0; i<candidate_count;i++)
+    for (int i = 0; i < candidate_count; i++)
     {
-        if(!candidates[i].eliminated){
+        if (!candidates[i].eliminated)
+        {
 
-        if(min!=candidates[i].votes){
+            if (min != candidates[i].votes)
+            {
 
-            return false;
-         }
-    }
+                return false;
+            }
+        }
     }
     return true;
 }
@@ -207,9 +211,9 @@ void eliminate(int min)
 {
     for (int c = 0; c < candidate_count; c++)
     {
-    if (candidates[c].eliminated == false && candidates[c].votes == min)
+        if (candidates[c].eliminated == false && candidates[c].votes == min)
         {
-        candidates[c].eliminated = true;
+            candidates[c].eliminated = true;
         }
     }
 }
