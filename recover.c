@@ -44,15 +44,16 @@ int main(int argc, char *argv[])
         char name[10] ;
 
        sprintf(name, "%03i.jpg" ,jpeg_count);
+       printf("processing file: %s\n", name);
 
-       if(jpg_found == false){
+       if(jpg_found ==true ){
 
-        jpg_found = true;
+        fclose(img);
 
        }
       else{
 
-        fclose(img);
+     jpg_found = true;
 
        }
 
