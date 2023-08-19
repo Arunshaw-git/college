@@ -4,7 +4,6 @@
 #include <ctype.h>
 #include <stdint.h>
 
-#define int BLOCK_SIZE 512;
 typedef uint8_t byte;
 
 int main(int argc, char *argv[])
@@ -20,7 +19,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    FILE *inpt = fopen(arg[1] , "r");
+    FILE *inpt = fopen(argv[1] , "r");
 
     if(inpt== NULL)
     {
@@ -31,12 +30,16 @@ int main(int argc, char *argv[])
     }
 
 
-    for(int i = 0; inpt != EOF ; i++ )
+ while (fread(block, sizeof(block), 1, inpt) == 1)
     {
 
      fread(block,sizeof(block), 1, inpt);
 
-    if(inpt[0]== 0xff && inpt[1] == 0xd8 && inpt[2] == 0xff && (inpt[3] & 0xf0) == 0xe0)
+
+    if (block[0] == 0xff &&
+        block[1] == 0xd8 &&
+        block[2] == 0xff &&
+        (block[3] & 0xf0) == 0xe0)
     {
         char name[10] ;
 
@@ -44,7 +47,7 @@ int main(int argc, char *argv[])
 
        if(jpg_found == false){
 
-        jpg_found = true:
+        jpg_found = true;
 
        }
       else{
@@ -57,7 +60,7 @@ int main(int argc, char *argv[])
 
         fwrite(block,sizeof(block), 1, img);
 
-        jpg_count++;
+        jpeg_count++;
 
     }
     else{
