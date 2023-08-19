@@ -3,10 +3,15 @@
 #include <cs50.h>
 #include <ctype.h>
 #define int BLOCK_SIZE 512;
+typedef uint8_t byte;
+
 int main(int argc, char *argv[])
-{ int jpeg_count =0;
-FILE *img;
- bool jpg_found = false;
+{
+    int jpeg_count =0;
+    byte block[512];
+
+    FILE *img;
+    bool jpg_found = false;
 
     if(argc !=2){
         printf("file not found");
@@ -28,7 +33,7 @@ FILE *img;
     for(int i = 0; inpt != EOF ; i++ )
     {
 
-     fread(buffer, 512, 1, inpt);
+     fread(buffer,block, 1, inpt);
 
     if(buffer[0]== 0xff && bufffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
     {
@@ -49,7 +54,7 @@ FILE *img;
 
         img = fopen(name, "w");
 
-        fwrite(buffer,512 , 1, img);
+        fwrite(buffer,block , 1, img);
 
         jpg_count++;
 
@@ -58,11 +63,13 @@ FILE *img;
 
         if(jpg_found==true){
 
-            fwrite(buffer,512,1,img);
-            
+            fwrite(buffer,block,1,img);
+
         }
     }
 
  }
+  fclose(inpt);
+    fclose(img);
 
 }
