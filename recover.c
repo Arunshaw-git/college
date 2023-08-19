@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <cs50.h>
 #include <ctype.h>
+#include <stdint.h>
+
 #define int BLOCK_SIZE 512;
 typedef uint8_t byte;
 
@@ -28,14 +30,13 @@ int main(int argc, char *argv[])
         return 2;
     }
 
-     FILE *buffer;
 
     for(int i = 0; inpt != EOF ; i++ )
     {
 
-     fread(buffer,block, 1, inpt);
+     fread(block,sizeof(block), 1, inpt);
 
-    if(buffer[0]== 0xff && bufffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
+    if(inpt[0]== 0xff && inpt[1] == 0xd8 && inpt[2] == 0xff && (inpt[3] & 0xf0) == 0xe0)
     {
         char name[10] ;
 
@@ -54,7 +55,7 @@ int main(int argc, char *argv[])
 
         img = fopen(name, "w");
 
-        fwrite(buffer,block , 1, img);
+        fwrite(block,sizeof(block), 1, img);
 
         jpg_count++;
 
@@ -63,7 +64,7 @@ int main(int argc, char *argv[])
 
         if(jpg_found==true){
 
-            fwrite(buffer,block,1,img);
+            fwrite(block,sizeof(block),1,img);
 
         }
     }
