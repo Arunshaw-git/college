@@ -22,6 +22,7 @@ int main(int argc, char *argv[]) {
 
     }
     byte block[512];
+
     FILE *jpg;
     bool jpgfound= false;
     int jpgcount =0;
@@ -44,16 +45,17 @@ int main(int argc, char *argv[]) {
                 jpgfound = true;
 
             }
-                 JPG = fopen(name, "w");
+                 jpg = fopen(name, "w");
             fwrite(block, sizeof(block), 1, jpg);
-            
+
               jpgcount++;
 
 
         }
         else{
 
-            if(jpgfound == true){
+            if(jpgfound == true)
+            {
 
     fwrite(block, sizeof(block), 1, jpg);
 
@@ -66,6 +68,6 @@ int main(int argc, char *argv[]) {
 
 
     fclose(inptr);
-    fclose(JPG);
+    fclose(jpg);
 
 }
