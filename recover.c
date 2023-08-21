@@ -14,18 +14,18 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-     FILE *inpt = fopen(argv[], "r")
+     FILE *inpt = fopen(argv[1], "r")
 
     if(inpt == NULL){
 
        fprintf(stderr,"couldn't open %s \n",argv[]);
-
+        return 2;
     }
     byte block[512];
 
     FILE *jpg;
     bool jpgfound= false;
-    int jpgcount =0;
+    int jpgcount = 0;
 
     while(fread(block,sizeof(block),1,inpt)==1){
 
