@@ -46,7 +46,8 @@ int main(int argc, char *argv[]) {
             }
                  JPG = fopen(name, "w");
             fwrite(block, sizeof(block), 1, jpg);
-
+            
+              jpgcount++;
 
 
         }
@@ -59,7 +60,7 @@ int main(int argc, char *argv[]) {
             }
 
         }
-            jpgcount++;
+
 
     }
 
