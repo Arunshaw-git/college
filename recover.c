@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <ctype.h>
 
-typedef uint8_t BYTE;
+typedef uint8_t byte;
 
 int main(int argc, char *argv[]) {
 
@@ -14,11 +14,11 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-     FILE *inpt = fopen(argv[1], "r")
+     FILE *inpt = fopen(argv[1], "r");
 
     if(inpt == NULL){
 
-       fprintf(stderr,"couldn't open %s \n",argv[]);
+       fprintf(stderr,"couldn't open %s \n",argv[1]);
         return 2;
     }
     byte block[512];
@@ -32,9 +32,7 @@ int main(int argc, char *argv[]) {
         if(block[0] == 0xff && block[1] == 0xd8 && block[2] == 0xff && (block[3] & 0xf0) == 0xe0){
              char name[8];
 
-            sprintf(name,"03i.jpg",jpgcount);
-
-            fread(jpg,sizeof(block),1,block);
+            sprintf(name,"%03i.jpg",jpgcount);
 
             if(jpgfound == true){
 
@@ -67,7 +65,7 @@ int main(int argc, char *argv[]) {
     }
 
 
-    fclose(inptr);
+    fclose(inpt);
     fclose(jpg);
 
 }
