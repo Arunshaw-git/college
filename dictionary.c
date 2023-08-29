@@ -130,6 +130,10 @@ bool unload(void)
 
           tmp = cursor;
     }
+    if ( tmp== NULL && i == N - 1)
+        {
+            return true;
+        }
     }
 
     return false;
