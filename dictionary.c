@@ -7,9 +7,11 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <stdint.h>
+#include <stdio.h>
 
 #include "dictionary.h"
-int sizex =0;
+ int sizex =0;
+  FILE *f;
 // Represents a node in a hash table
 typedef struct node
 {
@@ -64,7 +66,7 @@ unsigned int hash(const char *word)
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
-    FILE *f =fopen(dictionary,"r");
+    f =fopen(dictionary,"r");
 
     if(f == NULL){
 
@@ -75,13 +77,15 @@ bool load(const char *dictionary)
 
     char word1[LENGTH + 1];
 
-    while( fscanf(f,"%s",word1)!= EOF ){
+    while(fscanf(f, "%s", word1)!= EOF)
+    {
 
          node *n = malloc(sizeof(node));
 
-         if(n==NULL){
+         if(n==NULL)
+         {
 
-            return 1;
+            return false;
 
          }
 
@@ -117,7 +121,7 @@ bool unload(void)
 
     node *cursor;
 
-    for(int i = 0;i<26; i++){
+    for(int i = 0;i<N; i++){
 
         tmp = table[i];
 
