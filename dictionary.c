@@ -38,18 +38,14 @@ bool check(const char *word)
     while(cursor!=NULL)
     {
 
-    if(strcasecmp(word,cursor->word)!=0)
+    if(strcasecmp(word,cursor->word)==0)
     {
 
-        cursor= cursor->next;
+          return true;
 
     }
 
-    else{
-
-        return true;
-    }
-
+        cursor = cursor->next;
     }
 
     return false;
