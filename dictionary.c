@@ -55,7 +55,7 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
-
+    
     return toupper(word[0]) - 'A';
 }
 
@@ -132,7 +132,9 @@ bool unload(void)
     }
     if ( tmp== NULL && i == N - 1)
         {
+
             return true;
+
         }
     }
 
