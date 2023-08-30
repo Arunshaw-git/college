@@ -2,26 +2,24 @@
 
 #include <ctype.h>
 #include <stdbool.h>
-#include <strings.h>
-#include <string.h>
-#include <stdlib.h>
-#include <ctype.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
 
 #include "dictionary.h"
- int sizex =0;
-  FILE *f;
+int sizex = 0;
+FILE *f;
 // Represents a node in a hash table
 typedef struct node
 {
     char word[LENGTH + 1];
     struct node *next;
-}
-node;
+} node;
 
 // TODO: Choose number of buckets in hash table
-const unsigned int N =26;
+const unsigned int N = 26;
 
 // Hash table
 node *table[N];
@@ -35,15 +33,14 @@ bool check(const char *word)
 
     cursor = table[x];
 
-    while(cursor!=NULL)
+    while (cursor != NULL)
     {
 
-    if(strcasecmp(word,cursor->word)==0)
-    {
+        if (strcasecmp(word, cursor->word) == 0)
+        {
 
-          return true;
-
-    }
+            return true;
+        }
 
         cursor = cursor->next;
     }
@@ -55,52 +52,48 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
-    
+
     return toupper(word[0]) - 'A';
 }
 
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
-    f =fopen(dictionary,"r");
+    f = fopen(dictionary, "r");
 
-    if(f == NULL){
+    if (f == NULL)
+    {
 
         printf("invalid file");
         return false;
-
     }
 
     char word1[LENGTH + 1];
 
-    while(fscanf(f, "%s", word1)!= EOF)
+    while (fscanf(f, "%s", word1) != EOF)
     {
 
-         node *n = malloc(sizeof(node));
+        node *n = malloc(sizeof(node));
 
-         if(n==NULL)
-         {
+        if (n == NULL)
+        {
 
             return false;
+        }
 
-         }
+        strcpy(n->word, word1);
 
-         strcpy(n->word, word1);
+        int index = hash(word1);
 
+        n->next = table[index];
 
-         int index = hash(word1);
+        table[index] = n;
 
-         n->next = table[index];
+        sizex++;
+    }
+    fclose(f);
 
-         table[index] = n;
-
-           sizex++;
-
-
-}
- fclose(f);
-
-      return true;
+    return true;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
@@ -117,24 +110,24 @@ bool unload(void)
 
     node *cursor;
 
-    for(int i = 0;i<N; i++){
+    for (int i = 0; i < N; i++)
+    {
 
         tmp = table[i];
 
-         while(tmp!=NULL)
-         {
+        while (tmp != NULL)
+        {
 
-          cursor = tmp->next;
+            cursor = tmp->next;
 
-          free(tmp);
+            free(tmp);
 
-          tmp = cursor;
-    }
-    if ( tmp== NULL && i == N - 1)
+            tmp = cursor;
+        }
+        if (tmp == NULL && i == N - 1)
         {
 
             return true;
-
         }
     }
 
