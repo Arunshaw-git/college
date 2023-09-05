@@ -18,6 +18,7 @@ while True:
         if item in menu:
             total+=menu[item]
             print(f"Total: {total}")
+            print()
 
     except EOFError:
        break
