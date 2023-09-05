@@ -16,7 +16,7 @@ total =0
 while True:
     try:
     item = input('Item: ').title()
-    print(item)
+    
 
          if item in menu:
                 print(f"Total: {total+=menu['item']}")
