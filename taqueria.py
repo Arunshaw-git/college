@@ -17,8 +17,9 @@ while True:
         item = input('Item: ').title()
         if item in menu:
             total+=menu[item]
-            x=round(total,2)
-            print(f"Total: ${x}")
+
+            print(f"Total: $",end= '')
+            print({:.2f}.format(total))
 
 
     except EOFError:
