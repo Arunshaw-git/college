@@ -17,9 +17,11 @@ while True:
         item = input('Item: ').title()
         if item in menu:
             total+=menu[item]
-            print(f"Total: ${total}")
-            print()
+            x=round(total,2)
+            print(f"Total: ${x}")
+
 
     except EOFError:
+       print()
        break
 
