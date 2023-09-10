@@ -1,10 +1,10 @@
 # TODO
 height=0
-while True:
-     height =int(input("Height: "))
-         if (height<=1 or height >=8):
-              break
-
+while height<1 or height >8:
+        try:
+             height =int(input("Height: "))
+        except:
+             print("enter an int")
 for i in range(height):
     for j in range(height+(i+2)):
 
