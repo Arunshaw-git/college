@@ -1,5 +1,5 @@
 # TODO
-
+int height
 while (height<1 and height >8):
          height =int(input("Height: "))
 
