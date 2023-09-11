@@ -13,19 +13,19 @@ def main():
             print("invalid input")
     cents= round(cents*100)
 
-    quaters = (cents //25)
-    cents = (cents - quaters *25)
+    quaters = round(cents //25)
+    cents = round(cents - quaters *25)
 
     dimes = cents //10
-    cents = (cents - dimes *10)
+    cents = round(cents - dimes *10)
 
     nickels = cents //5
-    cents = r(cents - nickels *5)
+    cents = round(cents - nickels *5)
 
     pennies = cents /1
     cents = cents - pennies*1
 
-    coins = (quaters + dimes + nickels + pennies)
+    coins = round(quaters + dimes + nickels + pennies)
 
     print(coins)
 
