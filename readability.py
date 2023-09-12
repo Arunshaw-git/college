@@ -15,7 +15,7 @@ def main():
     r_index = round(index)
 
     if r_index < 1:
-        print("Before grade 1")
+        print("Before Grade 1")
     elif r_index < 16:
         print("Grade ", r_index)
     else:
