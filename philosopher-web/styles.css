@@ -1,0 +1,54 @@
+*{
+    margin:0;
+    
+
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    max-width: 600px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: max-width 0.3s ease;
+    cursor: pointer; /* Indicate that the div is clickable */
+}
+.img {
+    flex: 0 0 20%; /* 20% width for the image */
+    max-width: 20%;
+    padding-right: 10px; /* Space between image and text */
+}
+
+.img img {
+    width: 100%; /* Ensure the image takes up the full width of its container */
+    height: auto;
+}
+.text {
+    flex: 1;
+    transition: opacity 0.3s ease;
+}
+
+.extra-content {
+    display: none;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.expanded {
+    max-width: 800px;
+}
+
+.expanded .img {
+    height: 200px;
+}
+
+.container.expanded .text {
+    display: none;
+}
+
+.expanded .extra-content {
+    display: block;
+}

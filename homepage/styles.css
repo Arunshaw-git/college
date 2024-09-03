@@ -1,0 +1,59 @@
+*
+{
+     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.bodies {
+    background-color: purple;
+   
+    min-height: 100vh;
+    
+}
+#navbar_logo{
+    text-align: left;
+    font-family: Arial, sans-serif;
+}
+.wrappper{
+    margin: 300px auto;
+    width: 70%;
+    
+
+   
+
+}
+#heading{
+    text-align: center;
+    font-size: 12ch;
+    font-stretch: extra-expanded;
+    font-family:'Times New Roman', Times, serif;
+    background-image :url("https://images.pexels.com/photos/1435752/pexels-photo-1435752.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1://images.unsplash.com/photo-1536633125620-8a3245c11ffa?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3VuZmxvd2VyJTIwZmllbGR8ZW58MHx8MHx8fDA%3D");
+    color: rgb(255, 230, 3);
+    min-height: 50px;
+    
+}
+.image
+{
+    width: 300px;
+   
+    border-radius: 10px;
+    margin-right: 15px;
+
+
+}
+.text{
+    color:aliceblue
+    
+}
+.text p{
+    font-size: 16px;
+   
+    
+}
+.text h2{
+    font-size: 42px;
+}
+a{
+    color:aliceblue
+}

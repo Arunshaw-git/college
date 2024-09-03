@@ -1,0 +1,17 @@
+tags:
+img 
+footer 
+meta 
+link 
+ul 
+li
+nav
+
+css selector:
+margin
+width 
+text-align 
+font-family
+border-radius
+
+i didnt use javascript for this website and i used bootstrap nav buttons and connected the pages with the nav buttons.
