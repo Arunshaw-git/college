@@ -15,12 +15,12 @@
 
                 <h2>Add a Birthday</h2>
                 <!-- TODO: Create a form for users to submit a name, a month, and a day -->
-                <form action='/' method= 'post' >
+                <from action='/' method= 'post' >
                     <input name = "name" type="text" placeholder = "name">
                     <input name= "month" type="number" placeholder ="month">
                     <input name = "day" type = "number" placeholder ="day">
                     <input type= "submit" value= "Add a birthday">
-                </form>
+                </from>
             </div>
 
             <div class="section">
@@ -34,12 +34,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                       {{% for birthday in birthdays %}}
-                       <tr>
-                            <td>birthday[name]</td>
-                            <td>{{bithday[day]}}/{{ birthday[month]}}</td>
-                       </tr>
-                      {{% endfor %}}
+                        {% for birthday in birthdays %}
+                          <tr>
+                              <td>{{birthday.name}}</td>
+                              <td>{{bithday.day}}/{{ birthday.month}}</td>
+                          </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>

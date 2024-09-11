@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+   <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class ="text start">symbol</th>
+                <th class="text-end">Shares</th>
+                <th class="text-end">Price</th>
+                <th class="text-end">transacted</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for y in data %}
+            <tr>
+
+                <td class="text-start">{{y.symbol}}</td>
+                <td class="text-end">{{y.quantity}}</td>
+                <td class="text-end">{{y.price}}</td>
+                <td class="text-end">{{y.timestamp}}</td>
+
+            </tr>
+
+           {% endfor %}
+
+        </tbody>
+
+    </table>
+{% endblock %}

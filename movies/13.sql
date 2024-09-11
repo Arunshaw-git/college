@@ -1,0 +1,1 @@
+ SELECT name FROM people WHERE name != 'Kevin Bacon' AND   id in (SELECT  distinct(b.person_id) FROM stars as a JOIN stars AS b ON a.movie_id = b.movie_id WHERE a.person_id = (SELECT id FROM people WHERE name = 'Kevin Bacon' AND birth = 1958));
